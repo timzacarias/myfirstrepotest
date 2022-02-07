@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'NNITLabsMC'
+    subscriptionId: '67e3289f-ecc9-44ab-840b-20eb34d81fd6'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'MDMC-Test-RG'
+    location: 'Central US'
+    templateLocation: 'URL of the file'
+    csmFileLink: 'https://raw.githubusercontent.com/timzacarias/myfirstrepotest/master/CreateWebApp/azuredeploy.json'
+    overrideParameters: 'Enter -projectName azrm-repo'
+    deploymentMode: 'Incremental'
+    deploymentName: 'DeployPipelineTemplate'
+- script: |
+
+  displayName: 'Run a multi-line script'
