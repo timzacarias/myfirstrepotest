@@ -10,8 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 - task: AzureResourceManagerTemplateDeployment@3
   inputs:
     deploymentScope: 'Resource Group'
@@ -22,9 +20,7 @@ steps:
     location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/timzacarias/myfirstrepotest/master/CreateWebApp/azuredeploy.json'
-    overrideParameters: myfirstrepotest
+    overrideParameters: '-projectName thirdARM'
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
-- script: |
 
-  displayName: 'Run a multi-line script'
