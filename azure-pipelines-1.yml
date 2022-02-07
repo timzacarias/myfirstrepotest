@@ -22,7 +22,7 @@ steps:
     location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: 'https://raw.githubusercontent.com/timzacarias/myfirstrepotest/master/CreateWebApp/azuredeploy.json'
-    overrideParameters: 'Enter -projectName azrm-repo'
+    overrideParameters: myfirstrepotest
     deploymentMode: 'Incremental'
     deploymentName: 'DeployPipelineTemplate'
 - script: |
